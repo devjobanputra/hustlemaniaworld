@@ -157,8 +157,7 @@ export default async function HomePage() {
             ================================================================ */}
         <section
           id="featured-section"
-          className="py-16 lg:py-28 section-reveal"
-          style={{ opacity: 0 }}
+          className="py-16 lg:py-28"
         >
           <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-16">
 
@@ -211,12 +210,11 @@ export default async function HomePage() {
             ================================================================ */}
         <section
           id="manifesto-section"
-          className="relative py-20 lg:py-36 overflow-hidden section-reveal"
+          className="relative py-20 lg:py-36 overflow-hidden"
           style={{
             background: 'rgba(10,10,10,0.92)',
             borderTop: '1px solid rgba(255,59,48,0.08)',
             borderBottom: '1px solid rgba(255,59,48,0.08)',
-            opacity: 0,
           }}
         >
           {/* Background gradient sweep */}
@@ -272,8 +270,7 @@ export default async function HomePage() {
             ================================================================ */}
         <section
           id="new-arrivals-section"
-          className="py-16 lg:py-28 section-reveal"
-          style={{ opacity: 0 }}
+          className="py-16 lg:py-28"
         >
           <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-16">
             <div className="flex items-end justify-between mb-10 lg:mb-16">
@@ -306,8 +303,8 @@ export default async function HomePage() {
             ================================================================ */}
         <section
           id="category-section"
-          className="py-16 lg:py-24 section-reveal"
-          style={{ opacity: 0, background: 'rgba(10,10,10,0.6)' }}
+          className="py-16 lg:py-24"
+          style={{ background: 'rgba(10,10,10,0.6)' }}
         >
           <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
