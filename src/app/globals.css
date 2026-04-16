@@ -1,0 +1,437 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   HUSTLE MANIA — Obsidian Frost Spatial Design System
+   Codename: Aggressive Etherealism
+   Generated with: Stitch MCP — Screen IDs: d157f0b4 (Homepage) / 765dc98d (PDP)
+   Design System Asset: assets/8828611f11884d878fe7a211a3f1ae70
+   ============================================================================ */
+
+@theme {
+  /* ── Core Surface Tokens ──────────────────────────────────────────────── */
+  --color-hm-black:             #0A0A0A;
+  --color-hm-void:              #0D0D0D;
+  --color-hm-bg:                #131313;
+  --color-hm-surface:           #131313;
+  --color-hm-surface-dim:       #131313;
+  --color-hm-surface-bright:    #3A3939;
+  --color-hm-surface-lowest:    #0E0E0E;
+  --color-hm-surface-low:       #1C1B1B;
+  --color-hm-surface-container: #201F1F;
+  --color-hm-surface-high:      #2A2A2A;
+  --color-hm-surface-highest:   #353534;
+  --color-hm-surface-variant:   #353534;
+
+  /* ── Glass Overlay Tokens (3D-first spatial layers) ─────────────────── */
+  /* Use these for all panels — they let the 3D canvas breathe through */
+  --color-glass-base:           rgba(13, 13, 13, 0.78);     /* Obsidian Frost — nav, overlays */
+  --color-glass-panel:          rgba(26, 25, 25, 0.65);     /* Floating panels, cards */
+  --color-glass-subtle:         rgba(20, 19, 19, 0.50);     /* Very light float */
+  --color-glass-border:         rgba(255, 59, 48, 0.18);    /* Ghost border — brand red edge */
+  --color-glass-border-subtle:  rgba(255, 59, 48, 0.08);    /* Ultra-subtle structural hint */
+  --color-glass-glow:           rgba(255, 59, 48, 0.12);    /* Ambient red neon glow */
+
+  /* ── Text Tokens ─────────────────────────────────────────────────────── */
+  --color-hm-on-bg:             #E5E2E1;
+  --color-hm-on-surface:        #E5E2E1;
+  --color-hm-on-surface-variant:#E7BDB7;
+  --color-hm-text-muted:        rgba(255, 180, 170, 0.60); /* 60% primary — metadata */
+  --color-hm-inverse-surface:   #E5E2E1;
+  --color-hm-inverse-on-surface:#313030;
+
+  /* ── Brand Red (Primary) ─────────────────────────────────────────────── */
+  --color-hm-brand-red:         #FF3B30;  /* Hard-coded — sole solid CTA color */
+  --color-hm-primary:           #FFB4AA;
+  --color-hm-primary-container: #FF5545;
+  --color-hm-on-primary:        #690003;
+  --color-hm-on-primary-container: #5C0002;
+
+  /* ── Secondary / Tertiary ────────────────────────────────────────────── */
+  --color-hm-secondary:         #CAC6C5;
+  --color-hm-secondary-container:#484646;
+  --color-hm-tertiary:          #FFB4AA;
+  --color-hm-tertiary-container:#C27F77;
+
+  /* ── System ──────────────────────────────────────────────────────────── */
+  --color-hm-error:             #FFB4AB;
+  --color-hm-error-container:   #93000A;
+  --color-hm-on-error:          #690005;
+  --color-hm-outline:           #AD8883;
+  --color-hm-outline-variant:   #5D3F3B;
+
+  /* ── Typography ──────────────────────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Border Radius — ALL ZERO — No Exceptions ────────────────────────── */
+  --radius-none: 0px;
+  --radius-xs:   0px;
+  --radius-sm:   0px;
+  --radius-md:   0px;
+  --radius-lg:   0px;
+  --radius-xl:   0px;
+  --radius-2xl:  0px;
+  --radius-3xl:  0px;
+  --radius-full: 0px;
+
+  /* ── Animation Tokens ────────────────────────────────────────────────── */
+  --animate-fade-in:          fade-in 0.3s ease-out forwards;
+  --animate-slide-up:         slide-up 0.4s ease-out forwards;
+  --animate-slide-in-right:   slide-in-right 0.25s ease-out forwards;
+  --animate-slide-out-right:  slide-out-right 0.25s ease-out forwards;
+  --animate-float-up:         float-up 0.15s ease-out forwards; /* spatial card hover */
+  --animate-pulse-badge:      pulse-badge 0.6s ease-in-out;
+  --animate-shimmer:          shimmer 1.5s linear infinite;
+  --animate-glow-pulse:       glow-pulse 2.4s ease-in-out infinite; /* red annotation dot */
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes slide-out-right {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+@keyframes float-up {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-6px); }
+}
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.25); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 6px 2px rgba(255, 59, 48, 0.5); }
+  50%       { box-shadow: 0 0 16px 6px rgba(255, 59, 48, 0.9); }
+}
+
+/* ============================================================================
+   3D Canvas Z-Index Contract
+   ─────────────────────────────────────────────────────────────────────────
+   z-0   → GlobalCanvas (fixed, pointer-events:none) — the 3D world
+   z-10  → Root UI wrapper (relative) — all HTML above the canvas
+   z-40  → Mobile menu overlay
+   z-50  → Navbar (sticky, glassmorphic)
+   z-99  → CartDrawer backdrop
+   z-100 → CartDrawer panel
+   ============================================================================ */
+
+/* ── Global Reset & Base ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Guard against fixed canvas causing h-scroll */
+}
+
+body {
+  background-color: #131313;
+  color: #E5E2E1;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── Selection ────────────────────────────────────────────────────────────── */
+::selection {
+  background-color: #FF3B30;
+  color: #FFFFFF;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar         { width: 4px; }
+::-webkit-scrollbar-track   { background: #0E0E0E; }
+::-webkit-scrollbar-thumb   { background: rgba(255, 59, 48, 0.3); }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 59, 48, 0.55); }
+
+/* ── Focus ────────────────────────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 1px solid rgba(255, 59, 48, 0.6);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   SPATIAL GLASS UTILITIES
+   Core classes used in all spatial UI overlays
+   ============================================================================ */
+
+/* Obsidian Frost — navbar, top-level overlays */
+.glass-obsidian {
+  background: rgba(13, 13, 13, 0.78);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-bottom: 1px solid rgba(255, 59, 48, 0.12);
+}
+
+/* Floating Panel — product cards, info panels */
+.glass-panel {
+  background: rgba(26, 25, 25, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 59, 48, 0.18);
+}
+
+/* Subtle float — very light glass for inner nesting */
+.glass-subtle {
+  background: rgba(20, 19, 19, 0.50);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 59, 48, 0.08);
+}
+
+/* Cart Drawer — side panel, deeper opacity */
+.glass-drawer {
+  background: rgba(14, 14, 14, 0.92);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-left: 1px solid rgba(255, 59, 48, 0.15);
+}
+
+/* Ghost border only (no bg) */
+.ghost-border {
+  border: 1px solid rgba(255, 59, 48, 0.18);
+}
+
+/* Ambient glow for active/floating elements */
+.glow-red {
+  box-shadow: 0 12px 40px rgba(255, 59, 48, 0.12);
+}
+.glow-red-strong {
+  box-shadow: 0 0 24px rgba(255, 59, 48, 0.25), 0 0 8px rgba(255, 59, 48, 0.4);
+}
+
+/* ============================================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================================ */
+
+.text-display-lg {
+  font-weight: 900;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+}
+.text-display-md {
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.text-headline-lg {
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.text-headline-md {
+  font-weight: 600;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.text-title-lg {
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+.text-label-lg {
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+.text-label-md {
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+}
+.text-label-sm {
+  font-weight: 500;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  line-height: 1.4;
+}
+.text-price {
+  font-weight: 900;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #FF3B30;
+}
+.text-muted {
+  color: rgba(255, 180, 170, 0.60);
+}
+
+/* ============================================================================
+   COMPONENT UTILITIES
+   ============================================================================ */
+
+/* Primary CTA — the ONLY fully opaque red element */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #FF3B30;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 0;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background 150ms ease-out, color 150ms ease-out;
+}
+.btn-primary:hover {
+  background: #690003;
+  color: #FFB4AA;
+}
+
+/* Ghost/outline CTA */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #E5E2E1;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(255, 59, 48, 0.4);
+  border-radius: 0;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: border-color 150ms ease-out, color 150ms ease-out, background 150ms ease-out;
+}
+.btn-ghost:hover {
+  border-color: #FF3B30;
+  color: #FF3B30;
+  background: rgba(255, 59, 48, 0.06);
+}
+
+/* Size selector chip */
+.size-chip {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(42, 42, 42, 0.9);
+  border: 1px solid rgba(255, 59, 48, 0.15);
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #E5E2E1;
+  cursor: pointer;
+  transition: background 150ms ease-out, border-color 150ms ease-out;
+}
+.size-chip:hover   { border-color: rgba(255, 59, 48, 0.5); }
+.size-chip.active  { background: #FF3B30; color: #FFFFFF; border-color: #FF3B30; }
+.size-chip.sold-out{ opacity: 0.28; pointer-events: none; text-decoration: line-through; }
+
+/* Filter chip */
+.filter-chip {
+  padding: 0.5rem 1.25rem;
+  background: rgba(58, 57, 57, 0.7);
+  border: 1px solid rgba(255, 59, 48, 0.12);
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #E5E2E1;
+  cursor: pointer;
+  transition: background 150ms ease-out, border-color 150ms ease-out;
+}
+.filter-chip:hover  { border-color: rgba(255, 59, 48, 0.4); }
+.filter-chip.active { background: rgba(137, 29, 22, 0.85); border-color: rgba(255, 59, 48, 0.4); color: #FFFFFF; }
+
+/* Product card — floating glass */
+.product-card {
+  background: rgba(26, 25, 25, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 59, 48, 0.15);
+  border-radius: 0;
+  overflow: hidden;
+  transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 59, 48, 0.35);
+  box-shadow: 0 16px 48px rgba(255, 59, 48, 0.1);
+}
+
+/* Input fields — spatial underline style */
+.input-spatial {
+  width: 100%;
+  background: rgba(26, 25, 25, 0.5);
+  border: none;
+  border-bottom: 1px solid rgba(255, 59, 48, 0.25);
+  color: #E5E2E1;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  padding: 0.875rem 0.75rem;
+  border-radius: 0;
+  outline: none;
+  transition: border-bottom-color 150ms ease-out;
+}
+.input-spatial:focus  { border-bottom-color: #FF3B30; }
+.input-spatial::placeholder { color: rgba(231, 189, 183, 0.4); font-size: 0.875rem; letter-spacing: 0.03em; }
+
+/* Annotation dot — spatial AR-style */
+.annotation-dot {
+  width: 10px;
+  height: 10px;
+  background: #FF3B30;
+  border-radius: 50%;
+  animation: glow-pulse 2.4s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #1C1B1B 25%, #2A2A2A 50%, #1C1B1B 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* The Strike — brand vertical line */
+.the-strike {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #FF3B30 20%, #FF3B30 80%, transparent);
+  opacity: 0.6;
+}
