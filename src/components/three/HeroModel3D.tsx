@@ -64,9 +64,9 @@ function SewingMachine() {
     if (offset < 0.25) {
       // 1. HERO SECTION (0.0 -> 0.25)
       // Center-right, facing slightly forward, lower Y position to clear Nav
-      targetPos.set(2.5, -1.0, 0); 
+      targetPos.set(2.5, -2.0, 0); 
       targetRot.set(0, -Math.PI / 6, 0);
-      targetScale = 2.2;
+      targetScale = 1.2;
     } else if (offset >= 0.25 && offset < 0.65) {
       // 2. FEATURED DROPS (0.25 -> 0.65)
       // Translate to far right, scale down, reveal side profile
@@ -98,8 +98,8 @@ function SewingMachine() {
         ref={groupRef}
         object={scene} 
         // Initial state manually set, damped smoothly afterwards
-        scale={2.2} 
-        position={[2.5, -1.0, 0]}
+        scale={1.2} 
+        position={[2.5, -2.0, 0]}
         rotation={[0, -Math.PI / 6, 0]} 
       />
     </Center>
@@ -156,6 +156,8 @@ function CinematicLighting() {
 
 // ─── Main Component Export ────────────────────────────────────────────────
 export default function HeroModel3D() {
+  console.log("3D Scene Loaded"); // Production logging hook
+
   return (
     <Float
       speed={1.5}

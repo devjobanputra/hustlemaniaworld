@@ -1,33 +1,52 @@
 'use client';
 
-// ============================================
-// Hustle Mania — 3D Scene Canvas (Phase 1)
-// Phase 2 will replace RotatingPlaceholder with
-// the actual garment/product 3D viewer.
-// ============================================
-
-import { useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { ScrollControls, Scroll } from '@react-three/drei';
 import HeroModel3D from './HeroModel3D';
 
-// ------------------------------------
-// Main exported canvas component
-// ------------------------------------
-export default function SceneCanvas() {
+interface SceneCanvasProps {
+  children: React.ReactNode;
+}
+
+export default function SceneCanvas({ children }: SceneCanvasProps) {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 5], fov: 45, near: 0.1, far: 100 }}
-      gl={{
-        antialias: true,
-        alpha: true,          // transparent background — body bg-hm-bg shows through
-        powerPreference: 'high-performance',
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        width: '100vw',
+        height: '100dvh',
+        zIndex: 0, // Behind Navbar
       }}
-      dpr={[1, 2]}            // retina-aware, capped at 2× to prevent GPU overload
-      frameloop="always"
-      style={{ background: 'transparent' }}
-      aria-hidden="true"      // decorative — hidden from screen readers
     >
-      <HeroModel3D />
-    </Canvas>
+      <Canvas
+        className="pointer-events-none"
+        camera={{ position: [0, 0, 5], fov: 45, near: 0.1, far: 100 }}
+        gl={{
+          antialias: true,
+          alpha: true,
+          powerPreference: 'high-performance',
+        }}
+        dpr={[1, 2]}
+      >
+        <ScrollControls pages={4} damping={0.25} distance={1.5}>
+          {/* The Scrollable 3D Item */}
+          <Scroll>
+            <HeroModel3D />
+          </Scroll>
+
+          {/* The Scrollable HTML DOM */}
+          <Scroll html style={{ width: '100%', position: 'absolute' }}>
+            <div className="w-full pointer-events-auto">
+              {children}
+            </div>
+            {/* Minimal inline Footer for the index page since the layout Footer exists below the fixed canvas */}
+            <footer className="w-full py-8 text-center text-label-md" style={{ color: 'rgba(231,189,183,0.5)', background: 'rgba(10,10,10,0.9)' }}>
+              &copy; {new Date().getFullYear()} HUSTLE MANIA. ALL RIGHTS RESERVED.
+            </footer>
+          </Scroll>
+        </ScrollControls>
+      </Canvas>
+    </div>
   );
 }
